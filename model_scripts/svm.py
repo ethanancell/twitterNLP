@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import spacy
 
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import LinearSVC
 
 run_validation = True
 
@@ -43,22 +43,21 @@ if run_validation:
     x_val = x_train[training_size:data_size]
     y_val = y_train[training_size:data_size]
 
-    # Create/fit the model
-    model = RandomForestClassifier(n_estimators=100)
+    # Create the model
+    model = LinearSVC(random_state=1, dual=False)
+
+    # Fit the model
     model.fit(partial_x_train, partial_y_train)
 
-    # Output model accuracy
-    print(f'Model test accuracy: {model.score(x_val, y_val) * 100:.3f}%')
+    # Model accuracy
+    print(f'Model test accuracy: {model.score(x_val, y_val)*100:.3f}%')
 
 else:
-    # Create/fit the model
-    model = RandomForestClassifier(n_estimators=100)
-    model.fit(x_train, y_train)
-
-    # Make the predictions
+    # Predict on the test dataset
+    model = LinearSVC(random_state=1, dual=False)
     result = model.predict(test_vectors)
 
     # Write the result to a csv
     test_df['target'] = result
     test_df = test_df.drop(columns=['keyword', 'location', 'text'])
-    test_df.to_csv("submission_rf.csv")
+    test_df.to_csv("submission_svc.csv")

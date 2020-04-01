@@ -16,6 +16,8 @@ Here is a guide to each of the files that is present inside this Github reposito
 #### Root level
 
 #### model_scripts
+* randomforest.py - This is a script that random forests on Spacy text vectorizations for the model. This script allows for the option to either output on validation data from the training data set, or output on the test dataset from the competition. If "run_validation" is set to false, then the script will create an extra CSV file that includes an extra column as the results of the prediction from the random forest model.
+* svm.py - Extremely similar to the Random Forest classifier. This also allows for the option of predicting on a validation set or on the test dataset.
 
 #### data
 * train.csv - Labeled training data for the tweets that contained a reference to a real life disaster or not.
