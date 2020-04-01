@@ -13,10 +13,10 @@ A rough timeline I followed for the project is the following:
 ## File Guide
 Here is a guide to each of the files that is present inside this Github repository:
 
-### Root level
+#### Root level
 
-### model_scripts
+#### model_scripts
 
-### data
+#### data
 * train.csv - Labeled training data for the tweets that contained a reference to a real life disaster or not.
 * test.csv - Unlabeled test data for the tweets. A submission for the Kaggle competition consists of creating the labels for the data, and then submitting a labeled version of test.csv onto Kaggle's website.
